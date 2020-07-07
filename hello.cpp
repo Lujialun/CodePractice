@@ -1,35 +1,26 @@
 #include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int NumberOf1Between1AndN_Solution(int n)
-    {
-        int cnt=0,m=0;
-        int carry=1;
-        int tmp=0;
-        while(n>0){
-            
-           
-            n=n/10;
-            if(tmp>1){
-                cnt +=(n+1)*carry;
-                 cout << "tmp>1 " << cnt << endl;
-            }else if(tmp==1){
-                cnt +=1+m%10;
-                cout << "tmp=1 " << cnt << endl;
-            }else{
-                cnt +=(n)*carry;
-                cout << "tmp==0 " << cnt << endl;
-            }
-           
-            tmp=n%10;
-            m += tmp*carry;
-            //cout << "cnt2 " << cnt << endl;
-            carry = carry * 10;
-        }
-        return cnt;
-    }
+ void FindNumbersWithSum(vector<int> array,int sum) {
+     vector<int> res;
+     int left = 0, right = array.size()-1;
+     while(left<right){
+         int m = (left + right) / 2;
+         if(array[m]>sum){
+             right = m;
+         }else if(array[m]<sum){
+             left = m + 1;
+         }else{
+             left = m;
+             break;
+         }
+     }
+     cout << left << " " << right << endl;
+}
  int main()
  {
-     cout << NumberOf1Between1AndN_Solution(101) << endl;
-     system("pause");
+    vector<int> a = {2, 4, 6, 8, 10};
+    FindNumbersWithSum(a, 10);
+    system("pause");
  }
