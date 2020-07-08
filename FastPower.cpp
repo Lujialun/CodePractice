@@ -1,5 +1,4 @@
-#include <iostream>
-#include <float.h>
+#include <bits/stdc++.h>
 using namespace std;
 
     double getpower(double x, long long n)//注意写成long long 
@@ -24,7 +23,8 @@ double myPow(double x, int n) {
 
 int main()
 {
-    double a = myPow(2, INT_MIN);
-    cout << to_string(a) << endl;
+    int a = -2;
+    unsigned int b = (unsigned int)a;
+    cout << b << endl;
     system("pause");
 }
