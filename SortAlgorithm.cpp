@@ -70,6 +70,7 @@ void InsertionSort(vector<int> &a)
     for(int i=1; i<a.size(); i++){//从a[1]开始遍历，将a[0]是为有序序列
         if(a[i]<a[i-1]){//是否小于有序序列最大值
             temp=a[i];//记录要插入的值，便于前值后移
+            
             for(int j=i; j>0; j--){
                 if(temp<a[j-1]){//比较前一个值
                     a[j]=a[j-1];
