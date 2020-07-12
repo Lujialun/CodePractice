@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-07-08 16:46:45
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-07-11 15:13:54
+ * @LastEditTime: 2020-07-11 15:27:28
  */ 
 #include <bits/stdc++.h>
 using namespace std;
@@ -35,6 +35,7 @@ public:
             ++tree[x];
             x += lowbit(x);
         }
+        
     }
 };
 

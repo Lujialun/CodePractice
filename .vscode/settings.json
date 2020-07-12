@@ -20,5 +20,21 @@
 
     "C_Cpp.clang_format_sortIncludes": true, // 格式化时调整include的顺序（按字母排序）
 
-    
+    // 文件头部注释
+    "fileheader.customMade": {
+        "Descripttion":"",
+        "version":"",
+        "Author":"sueRimn",
+        "Date":"Do not edit",
+        "LastEditors":"sueRimn",
+        "LastEditTime":"Do not Edit"
+    },
+    //函数注释
+    "fileheader.cursorMode": {
+        "name":"",
+        "test":"test font",
+        "msg":"",
+        "param":"",
+        "return":""
+    }
 }
