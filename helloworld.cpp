@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-07-08 16:46:45
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-07-11 15:13:54
+ * @LastEditTime: 2020-07-23 10:00:42
  */ 
 #include <bits/stdc++.h>
 using namespace std;
@@ -63,6 +63,8 @@ vector<int> countSmaller(vector<int>& nums) {
 int main()
 {
     vector<int> a = {5, 5, 2, 10, 3};
-    vectreversePairs(a);
+    char *p = nullptr;
+    if(p==nullptr)
+        cout << "ss" << endl;
     system("pause");
 }
