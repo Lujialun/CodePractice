@@ -3,68 +3,41 @@
  * @version: 
  * @Author: sueRimn
  * @Date: 2020-07-08 16:46:45
- * @LastEditors: sueRimn
- * @LastEditTime: 2020-07-23 10:00:42
+ * @LastEditors: Lucas
+ * @LastEditTime: 2020-07-28 20:37:17
  */ 
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+
 using namespace std;
 
-class BIT {
-private:
-    vector<int> tree;
+int main() {
     int n;
+    scanf("%d",&n);
+    
+    vector<long> num(n);
+    map<long,int> m;
+    long len = 0, weigh = 0;
+    long res = -1;
 
-public:
-    BIT(int _n): n(_n), tree(_n + 1) {}
+    for(int i = 0; i < n; i++) {
+        cin >> num[i];
+        m[num[i]]++;   //对出现的边进行统计
 
-    static int lowbit(int x) {
-        return x & (-x);
-    }
-
-    int query(int x) {
-        int ret = 0;
-        while (x) {
-            ret += tree[x];
-            x -= lowbit(x);
+        if(m[num[i]] == 2 && num[i] > 0) {   
+            if(num[i] > len) {
+                weigh = len;
+                len = num[i];
+                res = len*weigh;
+            }
+        } else if(m[num[i]] == 4){
+            if(num[i] > 0 && res < num[i]*num[i])
+                res = num[i]*num[i];
         }
-        return ret;
     }
-
-    void update(int x) {
-        while (x <= n) {
-            ++tree[x];
-            x += lowbit(x);
-        }
-    }
-};
-
-vector<int> countSmaller(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> tmp = nums;
-        // 离散化
-        sort(tmp.begin(), tmp.end());
-        for (int& num: nums) {
-           
-            num = lower_bound(tmp.begin(), tmp.end(), num) - tmp.begin() + 1;
-            
-        }
-        // 树状数组统计逆序对
-        BIT bit(n);
-        vector<int> res(n);
-        for (int i = n - 1; i >= 0; --i) {
-            res[i]=bit.query(nums[i] - 1);
-        //    cout << nums[i] << " " << ans << endl;
-            bit.update(nums[i]);
-        }
-        return res;
-    }
-
-
-int main()
-{
-    vector<int> a = {5, 5, 2, 10, 3};
-    char *p = nullptr;
-    if(p==nullptr)
-        cout << "ss" << endl;
+    if(res <= 0)
+        cout << -1 << endl;
+    else
+        cout << res << endl;
     system("pause");
+    return 0;
 }
