@@ -11,7 +11,7 @@ Prepare for the interview
 * [x]TCP/IP详解1
 * [x]图解HTTP
 * [x]STL源码剖析
-* [ ]漫画算法：小灰的算法之旅（*reading now*）
+* [x]漫画算法：小灰的算法之旅
 * [ ]MySQL技术内幕InnoDB存储引擎（*reading now*）
 * [ ]深入Linux内核
 * [ ]Linux设计与实现
