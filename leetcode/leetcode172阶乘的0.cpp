@@ -1,10 +1,10 @@
 /*
  * @Descripttion: 
  * @version: 
- * @Author: sueRimn
- * @Date: 2020-07-08 16:46:45
+ * @Author: Lucas
+ * @Date: 2020-07-31 20:14:10
  * @LastEditors: Lucas
- * @LastEditTime: 2020-07-31 21:16:10
+ * @LastEditTime: 2020-07-31 20:14:18
  */ 
 #include<bits/stdc++.h>
 
@@ -31,7 +31,7 @@ int trailingZeroes(int n) {//100=5*20 20=4*5 20+4=24个5
     return res;
 }
 int main() {
-    cout<<trailingZeroes(2100000000)<<endl;
+    cout<<trailingZeroes(100)<<endl;
     system("pause");
     return 0;
 }

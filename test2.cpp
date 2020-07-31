@@ -10,12 +10,15 @@
 #include<vector>
 #include<algorithm>
 #include <map>
+#include<queue>
 using namespace std;
 
 
 int main()
 {
     int n;
+    queue<int> a;
+    a
     while(cin>>n){
         vector<int> a(n, 0);
         for (int i = 0; i < n; i++){
@@ -25,7 +28,7 @@ int main()
         for (int i = 0; i < n; i++){
             int temp=a[i];
             while(m.find(temp)!=m.end()){
-                cout << i << " " << a[i] << endl;
+        
                 m.erase(temp);
                 temp = temp * 2;
             }
