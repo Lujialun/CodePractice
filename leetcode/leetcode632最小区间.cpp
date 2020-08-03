@@ -4,7 +4,7 @@
  * @Author: Lucas
  * @Date: 2020-08-01 17:28:47
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-01 17:43:52
+ * @LastEditTime: 2020-08-01 23:17:17
  */ 
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,16 +14,16 @@ public:
     vector<int> smallestRange(vector<vector<int>>& nums) {
         int rangeLeft = 0, rangeRight = INT_MAX;//初始区间
         int size = nums.size();
-        vector<int> next(size);
+        vector<int> next(size);//记录每一行长度的数组，因为每一行都要包含一个值所以一个访问完就要break
         
-        auto cmp = [&](const int& u, const int& v) {
+        auto cmp = [&](const int& u, const int& v) {//比较方式，达到插入索引实际比较的是数组中的值 ，最小堆
             return nums[u][next[u]] > nums[v][next[v]];
         };
         priority_queue<int, vector<int>, decltype(cmp)> pq(cmp);
         int minValue = 0, maxValue = INT_MIN;
         for (int i = 0; i < size; ++i) {
             pq.emplace(i);
-            maxValue = max(maxValue, nums[i][0]);
+            maxValue = max(maxValue, nums[i][0]);//计算出第一个中最大值
         }
 
         while (true) {

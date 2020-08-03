@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-07-08 16:46:45
  * @LastEditors: Lucas
- * @LastEditTime: 2020-07-31 21:16:10
+ * @LastEditTime: 2020-08-02 23:05:20
  */ 
 #include<bits/stdc++.h>
 
@@ -30,8 +30,26 @@ int trailingZeroes(int n) {//100=5*20 20=4*5 20+4=24个5
     }
     return res;
 }
+
+//class Solution {
+//public:
+class Solution {
+public:
+    int missingNumber(vector<int>& a) {
+        int l=0,r=a.size()-1,m;
+        while(l<=r){
+            m=l+(r-l)/2;
+            if(a[m]==m) l=m+1;
+            else r=m-1;
+        }
+        return l;
+    }
+};
+//};
+
 int main() {
-    cout<<trailingZeroes(2100000000)<<endl;
+    vector<int> a = {0,1,2,3,4,5,6,7,9};
+    cout << missingNumber(a) << endl;
     system("pause");
     return 0;
 }

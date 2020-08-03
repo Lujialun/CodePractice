@@ -1,22 +1,17 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: Lucas
+ * @Date: 2020-07-29 22:37:14
+ * @LastEditors: Lucas
+ * @LastEditTime: 2020-08-02 18:51:41
+ */ 
 #include<bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int n, m, x,h;
-    while(cin>>n>>m>>x){
-        priority_queue<int, vector<int>, greater<int>> q;
-        while(n--){
-            cin >> h;
-            q.push(h);
-        }
-        while(m--){
-            int temp = q.top()+x;
-            q.pop();
-            q.push(temp);
-        }
-        cout << q.top() << endl;
-    }
+   
     system("pause");
     return 0;
 }
