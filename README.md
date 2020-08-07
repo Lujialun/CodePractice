@@ -12,7 +12,7 @@ Prepare for the interview
 * [x]图解HTTP
 * [x]STL源码剖析
 * [x]漫画算法：小灰的算法之旅
-* [ ]MySQL技术内幕InnoDB存储引擎（*reading now*）
+* [x]MySQL技术内幕InnoDB存储引擎
 * [ ]深入Linux内核
 * [ ]Linux设计与实现
 * [ ]UNIX环境高级编程
