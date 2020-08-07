@@ -15,5 +15,5 @@ Prepare for the interview
 * [x]MySQL技术内幕InnoDB存储引擎
 * [ ]深入Linux内核
 * [ ]Linux设计与实现
-* [ ]UNIX环境高级编程
+* [ ]UNIX环境高级编程(***reading now***)
 * [ ]Linux多线程服务端编程
