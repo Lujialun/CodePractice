@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-07-08 16:46:45
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-02 23:05:20
+ * @LastEditTime: 2020-08-08 21:36:24
  */ 
 #include<bits/stdc++.h>
 
@@ -46,10 +46,29 @@ public:
     }
 };
 //};
-
+ int solve(int n, vector<int>& a) {
+        int Min=INT_MAX;
+        for(auto i:a){
+            if(i<Min) Min=i;
+        }
+        if(Min!=0&&Min>n){
+            for(int i=0; i<n; i++){
+                a[i] -= Min;
+            }  
+        }
+        int p=0;
+        for(int i=0; i<a.size(); i++){
+            if(a[i]==0) return i+1;
+             for(int j  =0; j<n; j++){
+                if(a[j]>0) a[j]--;
+            }
+            if(i==a.size()-1) i=-1; 
+        }
+        return 0;
+    }
 int main() {
-    vector<int> a = {0,1,2,3,4,5,6,7,9};
-    cout << missingNumber(a) << endl;
+    vector<int> a = {10,2,2};
+    cout << solve(3,a) << endl;
     system("pause");
     return 0;
 }

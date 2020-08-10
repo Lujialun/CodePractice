@@ -4,34 +4,28 @@
  * @Author: Lucas
  * @Date: 2020-07-29 17:32:42
  * @LastEditors: Lucas
- * @LastEditTime: 2020-07-29 21:24:51
+ * @LastEditTime: 2020-08-08 15:24:19
  */ 
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
+
 
 int main()
 {
-    int n, m;
-    while(cin>>n>>m){
-        vector<int> a(n, 0);
-        for (int i = 0; i < n; i++){
-            cin >> a[i];
+    string s;
+    while(cin>>s){//kmp算法
+        string r=s;
+        reverse(s.begin(), s.end());
+        int len=s.size();
+        s=' '+s+'#'+r;
+        int n=s.size();
+        vector<int>next(n,0);
+        for(int i=2,j=0; i<n; i++){ 
+            while (j&&s[i]!=s[j+1]) j=next[j];
+            if (s[i]==s[j+1]) j++;
+            next[i]=j;
         }
-        sort(a.begin(), a.end());
-        int b = a[n - 2], c = a[n - 1],cnt=0;
-        for (int i = 0; i < n-2; i++){
-            if(a[i]&b==a[i]||a[i]&c==a[i])
-                continue;
-            else{
-                cnt++;
-            }
-        }
-        if(cnt==1) cout << 2 << endl;
-        else
-            cout << 3 << endl;
+        cout<<s.substr(len+2, len-next[n-1])+s.substr(1, len)<<endl;;
     }
-    system("pause");
     return 0;
 }
