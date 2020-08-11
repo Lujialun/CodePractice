@@ -4,7 +4,7 @@
  * @Author: Lucas
  * @Date: 2020-08-10 18:59:37
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-11 00:51:03
+ * @LastEditTime: 2020-08-11 11:45:42
  * 
  * 
  * 4
@@ -30,13 +30,14 @@ bool dfs(vector<string> &a, int i,int j, string &w, int k){
         return false;
     } 
     char t=a[i][j];
-     cout <<i<<" "<<j<<" "<<a[i][j] << " " << w[k] << endl;
+   //  cout <<i<<" "<<j<<" "<<a[i][j] << " " << w[k] << endl;
     a[i][j]=0;
    
     bool f=dfs(a, i+1, j, w, k+1)||dfs(a, i-1, j, w, k+1)||dfs(a, i, j+1, w, k+1)||dfs(a, i, j-1, w, k+1);
-    cout <<f<< w[k] << endl;
-   if (f) return true;
+  //  cout <<f<< w[k] << endl;
+    if (f) return true;
     a[i][j]=t;
+    return false;
 }
 int main()
 {
