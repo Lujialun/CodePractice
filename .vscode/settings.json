@@ -36,5 +36,8 @@
         "msg":"",
         "param":"",
         "return":""
+    },
+    "files.associations": {
+        "iostream": "cpp"
     }
 }
