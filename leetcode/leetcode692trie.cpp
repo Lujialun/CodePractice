@@ -4,7 +4,7 @@
  * @Author: Lucas
  * @Date: 2020-08-11 19:55:24
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-11 22:02:43
+ * @LastEditTime: 2020-08-12 10:55:06
  */
 #include <bits\stdc++.h>
 using namespace std;
@@ -12,9 +12,11 @@ using namespace std;
 struct TrieNode{
     bool  isEnd;
     TrieNode* branch[26];
-    int times;
-    string s;
-    TrieNode():isEnd(false ),times(0){
+    //int times;
+    //string s;
+    pair<int,string> show ;
+    TrieNode():isEnd(false ){
+        show.first=0;
         for(int i=0;i<26; i++){
              branch[i]=nullptr;
         }
@@ -31,13 +33,11 @@ public:
         K=k;
         vector<string> res(k);
         dfs(root);
-        for(int i=0; i<k&&!p.empty(); i++){
+        for(int i=0; i<k; i++){
             res[i]=p.top().second;
             p.pop();
-        //    cout<<p.top().second<<endl;
         }
         reverse(res.begin(),res.end()); 
-       // sort(res.begin(),res.end());
         return res;
     }
      void insert(string &word){
@@ -50,14 +50,14 @@ public:
             node=node->branch[it-'a'];
         }
         node->isEnd=true;
-        node->times++;
-        node->s=word;
+        node->show.first++;
+        node->show.second=word;
     }
 
     void dfs(TrieNode* root){
         if(root==nullptr) return;
         if(root->isEnd){
-            p.push(make_pair(root->times,root->s));
+            p.push(root->show);
             if(p.size()>K){
                 p.pop();
             }
@@ -68,8 +68,17 @@ public:
             }
         } 
     }
+
+    struct comp{
+        bool operator()(pair<int,string> a, pair<int,string> b){
+            if(a.first>b.first) return true;
+            if(a.first<b.first) return false;
+            if(a.second>=b.second) return false;
+            return true;
+        }
+    };
 private:
     TrieNode* root;
     int K;
-    priority_queue<pair<int,string>,vector<pair<int,string>>,  greater<pair<int,string>>> p;
+    priority_queue<pair<int,string>,vector<pair<int,string>>,  comp> p;
 };
