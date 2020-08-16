@@ -4,7 +4,7 @@
  * @Author: Lucas
  * @Date: 2020-08-12 16:49:38
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-16 10:44:34
+ * @LastEditTime: 2020-08-16 17:19:01
  */
 
 #include<bits\stdc++.h>
@@ -47,71 +47,42 @@ void stringFilt(const char *input, int inputlen, char *output){
 
 long long numbers(int a, int b, int c, int d, int p) {
         // write code here
-        int  m=0,n=0;
-        bool r=false,t=false;
-        long long ans;
-        for(int i=a; i<=b; i++){
-            if(i%p==0)
-            {
-                m = i / p;
-                r=true;
-                break;
-            }
-            
-        }
-
-        for(int i=b; i>=a; i--){
-            if(i%p==0)
-            {
-                n = i / p;
-                r=true;
-                break;
-            }
-            
-        }
-        long long q=1, w=1;
-        if(n!=m)
-        q = n - m + 1;
-        m = 0, n = 0;
-        for(int i=c; i<=d; i++){
-            if(i%p==0)
-            {
-                m = i / p;
-                t=true;
-                break;
-            }
-            
-        }
-
-        for(int i=d; i>=c; i--){
-            if(i%p==0)
-            {
-                n = i / p;
-                t=true;
-                break;
-            }
-            
-        }
-        cout << r << t << endl;
-        if(!r&&!t) return 0;
-     //   if(!r||!t) return 1;
-        if(n!=m)
-        w = n - m + 1;
-        
-        return (long long)q * ((d - c) + 1) + (long long)w * ((b - a) + 1 - q);
+        long long left = (b / p) - (a - 1) / p;
+        long long right = (d / p) - (c - 1) / p;
+        return (b - a + 1) * right + (d - c + 1) * left - left * right;
     }
-// long long numbers(int a, int b, int c, int d, int p) {
-//         // write code here
-//         long long left = (b / p) - (a - 1) / p;
-//         long long right = (d / p) - (c - 1) / p;
-//         return (b - a + 1) * right + (d - c + 1) * left - left * right;
-//     }
 
-int main(){
+int CalulateMethodCount(int num_money) {
+    
+    return (1<<(num_money-1))+1;
+}
 
-    // cout << isPalindrome(101) << endl;
-    // cout << isPalindrome(1011) << endl;
-    // cout << isPalindrome(-101) << endl;
-    cout << numbers(1, 1, 1, 1, 3) << endl;
-    system("pause");
+
+int main() {
+    string cur;
+    stack<string> del;
+    vector<string> save;
+    while (cin >> cur) {
+        if (cur == "undo") {//撤销
+            if (save.empty()) continue;//无字符串可以撤销
+            cur = save.back();
+            save.pop_back();
+            del.push(cur);
+        }
+        else if (cur == "redo") {//恢复
+            if (del.empty()) continue;//无撤销的字符串可以恢复
+            cur = del.top();//此时del不应该为空
+            del.pop();
+            save.push_back(cur);
+        }
+        else {
+            save.push_back(cur);
+            while (not del.empty()) del.pop();//一个是如果前一个不是撤销则恢复“空气”
+        }
+    }
+    for (int i = 0; i < save.size(); ++i) {
+        cout << save[i] << " ";
+    }
+ 
+    return 0;
 }
