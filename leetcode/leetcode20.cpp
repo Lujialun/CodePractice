@@ -1,10 +1,10 @@
 /*
- * @Descripttion:  20. 有效的括号 https://leetcode-cn.com/problems/valid-parentheses/
+ * @Descripttion:  20. 有效的括号https://leetcode-cn.com/problems/valid-parentheses/
  * @version: 
  * @Author: Lucas
  * @Date: 2020-08-14 09:44:51
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-14 09:45:18
+ * @LastEditTime: 2020-08-14 19:00:33
  */
 
 class Solution {
