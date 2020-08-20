@@ -3,8 +3,8 @@
  * @version: 
  * @Author: sueRimn
  * @Date: 2020-07-22 15:11:20
- * @LastEditors: sueRimn
- * @LastEditTime: 2020-07-22 16:20:20
+ * @LastEditors: Lucas
+ * @LastEditTime: 2020-08-17 16:42:46
  */ 
 
 #include<bits/stdc++.h>
@@ -21,7 +21,7 @@ string 32 vector 24 map 48 不遵守内存对齐
 class ClassSize{
 
     //int a;
-      char n;
+    static  char n;
     //double c;
   
     virtual void fun1(){};

@@ -4,49 +4,90 @@
  * @Author: sueRimn
  * @Date: 2020-07-08 16:46:45
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-14 19:29:44
+ * @LastEditTime: 2020-08-19 22:13:20
  */ 
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+class test
+{
+public:
+    test() {
+        print();
+    }
+    ~test() {
+        print();
+    }
+    virtual void print() {
+        cout << " father hello world" << endl;
+    }
+};
+
+class Son : public test
+{
+public:
+    Son() {
+        print();
+    }
+    ~Son() {
+        print();
+    }
+    virtual void print() {
+        cout << " son hello world" << endl;
+    }
+};
+
+void strRemove(char* str) {
+    char *p = str;
+    while(*str!='\0')
+    {
+        if(*str!=' ')
+        {
+            *p = *str;
+            p++;
+        }
+        str++;
+    }
+    *p = '\0';
+}
+
+void stackoverflow() {
+    stackoverflow();
+}
+int num = 99;
+class A{
+public:
+    A();
+private:
+    int n;
+    int &r;
+};
+A::A(): n(0), r(num){}
 
 
 
 #include<iostream>
-
-
 #include<vector>
-
-
 #include<algorithm>
-
+#include <cmath>
 using namespace std;
 
-int main() {
-    int N,d;
-    cin >> N >> d;
-    int n = N * N;
-    vector<int> a(n);
-
-    for (int i = 0; i < n; i++)
-    {
-        cin >> a[i];
-    }
-    sort(a.begin(), a.end());
-    if(a[0]==a[n-1])
-    {
-        cout << 0 << endl;
-        return 0;
-    }
-    int ans=0;
-    for (int i = 0; i < n-1; i++)
-    {
-        if((a[n-1]-a[i])%d==0)
-        {
-            ans += (a[n - 1] - a[i]) / d;
-        }else{
-            cout << -1 << endl;
-            return 0;
+int main(){
+    int n,res,ans;
+    while(cin>>n){
+        ans = 1;
+        int kid = 0;
+        int cnt = 3;
+        while(n>3){
+            int cnt = 3;
+            n = n - 3;
+            while(cnt--){
+                
+            }
         }
+        
     }
-    cout << ans << endl;
-    //system("pause");
     return 0;
 }
