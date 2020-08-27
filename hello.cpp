@@ -4,10 +4,12 @@
  * @Author: Lucas
  * @Date: 2020-08-22 11:13:52
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-22 13:05:27
+ * @LastEditTime: 2020-08-23 19:16:13
  */
 #include <iostream>
 #include <string.h>
+#include<stdio.h>
+#include <unistd.h>
 using namespace std;
 
 /***将字符串转成int***/
@@ -95,16 +97,13 @@ string to_String(int n)
 }
 int main()
 {
-    char s[10];
-    snprintf(s, 10, "%s", "1314520");
+    int i;
+    for (i = 0; i < 2; i++){
+        
+       cout<<
+        printf("-\n");
+    }
 
-    int i = char2int(s);
- //   cout << i << endl;
-
-    char str[10];
-    int2char(9079968, str);
-    cout << str << endl;
-
-  //  strRer("abcdefg");
-    system("pause");
+        //  strRer("abcdefg");
+        system("pause");
 }
