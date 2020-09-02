@@ -34,21 +34,21 @@
 #define vv vector<vector<int>>
 using namespace std;
 
-// void dfs(vv &a, vector<bool> &f, int now,int k, int cnt,int &res){
-//     if(now==k){
-//         res=cnt;
-//     }
-//     cnt++;
-//     f[now] = true;
-//     //cout << " here" << endl;
-//     for (int i = 0; i < a[now].size(); i++){
-//         if(!f[a[now][i]]){
-//             dfs(a, f, a[now][i], k, cnt, res);
-//         }
-//     }
-//     f[now] = false;
-//     cnt--;
-// }
+void dfs(vv &a, vector<bool> &f, int now,int k, int cnt,int &res){
+    if(now==k){
+        res=cnt;
+    }
+    cnt++;
+    f[now] = true;
+    //cout << " here" << endl;
+    for (int i = 0; i < a[now].size(); i++){
+        if(!f[a[now][i]]){
+            dfs(a, f, a[now][i], k, cnt, res);
+        }
+    }
+    f[now] = false;
+    cnt--;
+}
 
 int func1(vv &a, int x, int y){
     queue<int> q1;
@@ -101,8 +101,9 @@ int func2(vv &a, int x, int y){
                     q2.push(n);
                 }
             }
-            q1 = q2;
+           
         }
+         q1 = q2;
     }
 }
 int main()
