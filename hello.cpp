@@ -4,7 +4,7 @@
  * @Author: Lucas
  * @Date: 2020-08-22 11:13:52
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-23 19:16:13
+ * @LastEditTime: 2020-09-02 11:45:22
  */
 #include <iostream>
 #include <string.h>
@@ -95,15 +95,17 @@ string to_String(int n)
     ss[j] = '\0';
     return ss;
 }
+
+void print(){
+    static int a = 1;
+    a++;
+    cout << a << endl;
+}
 int main()
 {
-    int i;
-    for (i = 0; i < 2; i++){
-        
-       cout<<
-        printf("-\n");
-    }
+    print();
+    print();
 
-        //  strRer("abcdefg");
-        system("pause");
+    //  strRer("abcdefg");
+    system("pause");
 }

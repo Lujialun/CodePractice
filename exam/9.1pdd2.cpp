@@ -79,7 +79,7 @@ int main()
             b.push_back(s[i].size());
         }
         sort(b.begin(), b.end());
-        cout << b[b.size() - 1] + b[b.size() - 2] << endl;
+        cout << b[b.size() - 1] + b[b.size() - 2] +1 << endl;
     }
     system("pause");
     return 0;
