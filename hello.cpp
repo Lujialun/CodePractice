@@ -4,7 +4,7 @@
  * @Author: Lucas
  * @Date: 2020-08-22 11:13:52
  * @LastEditors: Lucas
- * @LastEditTime: 2020-09-02 11:45:22
+ * @LastEditTime: 2020-09-04 16:23:51
  */
 #include <iostream>
 #include <string.h>
@@ -103,8 +103,9 @@ void print(){
 }
 int main()
 {
-    print();
-    print();
+    int a = 67305985;
+    char *b = (char *)&a;
+    cout << (int)(*b) << " " << (int)*(b + 1) << endl;
 
     //  strRer("abcdefg");
     system("pause");
