@@ -4,7 +4,7 @@
  * @Author: Lucas
  * @Date: 2020-08-22 11:13:52
  * @LastEditors: Lucas
- * @LastEditTime: 2020-09-04 16:23:51
+ * @LastEditTime: 2020-09-06 13:11:44
  */
 #include <iostream>
 #include <string.h>
@@ -101,12 +101,68 @@ void print(){
     a++;
     cout << a << endl;
 }
+
+ 
+// class A  //大小为4
+// {
+// public:
+// 	int a;
+// };
+// class B :virtual public A  //大小为16，变量a,b共8字节，虚基类表指针8
+// {
+// public:
+// 	int b;
+// };
+// class C :virtual public A //与B一样16
+// {
+// public:
+// 	int c;
+// };
+// class D :public B, public C //40,变量a,b,c,d共16，B的虚基类指针8，C的虚基类指针8
+// {
+// public:
+// 	int d;
+// };
+ 
+ class A {//8
+
+    //int a;
+    virtual void print(){
+        1;
+    }
+ //   virtual ~A(){}
+
+};
+
+class B:virtual public A{//16
+    int a;
+
+    //  virtual void myfunB(){}
+
+};
+
+class C:virtual public A{//8
+   // int b;
+    //virtual void myfunC(){}
+
+};
+
+class D:public B,public C{//24
+
+   // virtual void myfunD(){}
+
+};
+
 int main()
 {
-    int a = 67305985;
-    char *b = (char *)&a;
-    cout << (int)(*b) << " " << (int)*(b + 1) << endl;
-
-    //  strRer("abcdefg");
-    system("pause");
+	A a;
+	B b;
+	C c;
+	D d;
+	cout << sizeof(a) << endl;
+	cout << sizeof(b) << endl;
+	cout << sizeof(c) << endl;
+	cout << sizeof(d) << endl;
+	system("pause");
+	return 0;
 }
