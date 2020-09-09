@@ -4,12 +4,13 @@
  * @Author: Lucas
  * @Date: 2020-08-22 11:13:52
  * @LastEditors: Lucas
- * @LastEditTime: 2020-09-06 13:11:44
+ * @LastEditTime: 2020-09-07 17:06:49
  */
 #include <iostream>
 #include <string.h>
 #include<stdio.h>
 #include <unistd.h>
+#include <thread>
 using namespace std;
 
 /***将字符串转成int***/
@@ -125,44 +126,33 @@ void print(){
 // };
  
  class A {//8
-
+public:
     //int a;
-    virtual void print(){
-        1;
+    void print(){
+        cout << 1 << endl;
     }
  //   virtual ~A(){}
 
 };
 
-class B:virtual public A{//16
+class B:public A{//16
     int a;
 
     //  virtual void myfunB(){}
-
+    void print(){
+        cout << "2" << endl;
+    }
 };
 
-class C:virtual public A{//8
-   // int b;
-    //virtual void myfunC(){}
-
-};
-
-class D:public B,public C{//24
-
-   // virtual void myfunD(){}
-
-};
+void hello()
+{
+    std::cout<<"Hello Concurrent World\n";
+}
 
 int main()
 {
-	A a;
-	B b;
-	C c;
-	D d;
-	cout << sizeof(a) << endl;
-	cout << sizeof(b) << endl;
-	cout << sizeof(c) << endl;
-	cout << sizeof(d) << endl;
-	system("pause");
+    A *a = new B();
+    a->print();
+    system("pause");
 	return 0;
 }

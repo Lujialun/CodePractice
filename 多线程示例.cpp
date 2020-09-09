@@ -4,7 +4,7 @@
  * @Author: Lucas
  * @Date: 2020-08-14 09:43:30
  * @LastEditors: Lucas
- * @LastEditTime: 2020-08-22 11:13:43
+ * @LastEditTime: 2020-09-07 14:27:21
  */
 #include "iostream"
 #include "thread"
@@ -72,12 +72,12 @@ int main() {
     system("pause");
     return 0;
 
-	while(1) {
-    	pthread_mutex_lock();
-    	pthread_cond_wait();
-    	//取元素；
-    	pthread_mutex_unlock();
-	}
+	// while(1) {
+    // 	pthread_mutex_lock();
+    // 	pthread_cond_wait();
+    // 	//取元素；
+    // 	pthread_mutex_unlock();
+	// }
  
 
 	
