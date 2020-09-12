@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: Lucas
+ * @Date: 2020-07-18 09:56:00
+ * @LastEditors: Lucas
+ * @LastEditTime: 2020-09-10 14:12:23
+ */
 #include<iostream>
 #include "assert.h"
 using namespace std;
@@ -10,7 +18,25 @@ char* Strcpy(char* des, const char* src)
     return des;
 }
 
-void* Memcpy(void *des, const void *src, unsigned int n)//n×Ö½ÚÊý
+
+char *strncpy_m(char *dest,const char *str,int n)
+{
+	assert((dest!=NULL)&&(str!=NULL));
+	char *cp=dest;
+	while(n&&(*cp++=*str++)!='\0')
+	{
+		n--;
+	}
+	if(n)
+	{
+		while(--n)
+		*cp++='\0';
+	}
+	return dest;
+}
+
+
+void* Memcpy(void *des, const void *src, unsigned int n)//nï¿½Ö½ï¿½ï¿½ï¿½
 {
     void *p=des;
     if(des==NULL || src==NULL || n<1) return NULL;

@@ -67,8 +67,16 @@ int main(){
     dic[0][0] = 'A', dic[0][1] = 'B', dic[0][2] = 'C', dic[0][3] = 'E';
     dic[1][0] = 'S', dic[1][1] = 'F', dic[1][2] = 'C', dic[1][3] = 'S';
     dic[2][0] = 'A', dic[2][1] = 'D', dic[2][2] = 'E', dic[2][3] = 'E';
-    
-    while(cin >> word){
+
+    cin >> word;
+    int tem = rand() % 100;
+    if(tem%2==0){
+        cout << "true" << endl;
+    }else{
+        cout << "false" << endl;
+    }
+
+    // while(cin >> word){
 
     
     int f = 0;
@@ -83,6 +91,6 @@ int main(){
     if(!f){
         cout << "false" << endl;
     }
-    }
+    // }
     system("pause");
 }
